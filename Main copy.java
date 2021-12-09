@@ -8,8 +8,7 @@ import java.awt.event.*;
 
 class MyFrame
 	extends JFrame
-		implements ActionListener {
-			private CardLayout crd;  
+	implements ActionListener {
 
 	// Components of the Form
 	private Container c;
@@ -56,7 +55,8 @@ class MyFrame
 			"2015", "2016", "2017", "2018",
 			"2019" };
 
-
+	// constructor, to initialize the components
+	// with default values.
 	public MyFrame()
 	{
 		setTitle("Registration Form");
@@ -65,7 +65,7 @@ class MyFrame
 		setResizable(false);
 
 		c = getContentPane();
-		crd = new CardLayout();    
+		// crd = new CardLayout();    
 		c.setLayout(null);
 
 		title = new JLabel("Registration Form");

@@ -6,8 +6,8 @@ import java.awt.event.*;
 class MyFrame
         extends JFrame 
         {
-            private CardLayout crd;  
-    
+             Container cPane;  
+			 CardLayout crd;    
     public MyFrame()
 	{
 		setTitle("Google Form Project");
@@ -15,16 +15,17 @@ class MyFrame
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
         setResizable(false);
 
-        JPanel cPanel = new JPanel();
-
+        JPanel cPanel = new JPanel(); 
+		cPane = getContentPane();
 		crd = new CardLayout();    
-		cPanel.setLayout(crd);
+  
+        cPanel.setLayout(crd);    
+		// cPanel.setLayout(crd);
 
         JPanel jPanel1 = new JPanel();
         JPanel jPanel2 = new JPanel();
         JPanel jPanel3 = new JPanel();
         
-
 
         JLabel title = new JLabel("Registration Form");
 		title.setFont(new Font("Arial", Font.PLAIN, 30));
@@ -57,7 +58,9 @@ class MyFrame
         jPanel1.add(tenroll);
         
         JButton nextbutton = new JButton("Next");
-        jPanel1.add(nextbutton);
+		jPanel1.add(nextbutton);
+		
+		jPanel1.setVisible(true);
 
         cPanel.add(jPanel1, "1");
 
@@ -163,25 +166,11 @@ class MyFrame
 		IM.setLocation(425, 200);
         jPanel3.add(IM);
 
-
         JButton SUBMIT = new JButton("Submit");
         jPanel3.add(SUBMIT);
-
-
-        cPanel.add(jPanel1, "1");
-
-        
-
-
-        setVisible(true);
-    
-    
+		cPanel.add(jPanel1, "1");
+		getContentPane().add(cPanel);
     }
-
-
-
-
-
         }
 
 
