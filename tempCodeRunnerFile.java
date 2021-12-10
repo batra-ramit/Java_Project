@@ -1,1 +1,2 @@
-setBounds(300, 90, 900, 600)
+
+    // result.setLocation(200, 100);

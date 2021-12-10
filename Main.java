@@ -7,261 +7,280 @@ import java.awt.*;
 import java.awt.event.*;
 
 class MyFrame
-	extends JFrame
-		implements ActionListener {
-			private CardLayout crd;  
+		extends JFrame {
+	private CardLayout crd;
 
 	// Components of the Form
 	private Container c;
-	private JLabel title;
-	private JLabel name;
-	private JTextField tname;
-	private JLabel mno;
-	private JTextField tmno;
-	private JLabel gender;
-	private JRadioButton male;
-	private JRadioButton female;
-	private ButtonGroup gengp;
-	private JLabel dob;
-	private JComboBox date;
-	private JComboBox month;
-	private JComboBox year;
-	private JLabel add;
-	private JTextArea tadd;
-	private JCheckBox term;
-	private JButton sub;
-	private JButton reset;
-	private JTextArea tout;
-	private JLabel res;
-	private JTextArea resadd;
+	int Score = 0;
 
-	private String dates[]
-		= { "1", "2", "3", "4", "5",
-			"6", "7", "8", "9", "10",
-			"11", "12", "13", "14", "15",
-			"16", "17", "18", "19", "20",
-			"21", "22", "23", "24", "25",
-			"26", "27", "28", "29", "30",
-			"31" };
-	private String months[]
-		= { "Jan", "feb", "Mar", "Apr",
-			"May", "Jun", "July", "Aug",
-			"Sup", "Oct", "Nov", "Dec" };
-	private String years[]
-		= { "1995", "1996", "1997", "1998",
-			"1999", "2000", "2001", "2002",
-			"2003", "2004", "2005", "2006",
-			"2007", "2008", "2009", "2010",
-			"2011", "2012", "2013", "2014",
-			"2015", "2016", "2017", "2018",
-			"2019" };
-
-
-	public MyFrame()
-	{
-		setTitle("Registration Form");
-		setBounds(300, 90, 900, 600);
-		setDefaultCloseOperation(EXIT_ON_CLOSE);
-		setResizable(false);
+	// constructor, to initialize the components
+	// with default values.
+	public MyFrame() {
+		
 
 		c = getContentPane();
-		crd = new CardLayout();    
+		crd = new CardLayout();
 		c.setLayout(null);
 
-		title = new JLabel("Registration Form");
-		title.setFont(new Font("Arial", Font.PLAIN, 30));
-		title.setSize(300, 30);
-		title.setLocation(300, 30);
-		c.add(title);
+		setTitle("Google Form Project");
+	  setBounds(300, 90, 900, 600);
+    setDefaultCloseOperation(EXIT_ON_CLOSE);
+    setResizable(false);
+	
+    JPanel cPanel = new JPanel();
+    
+	// CardLayout crd;
+    // crd = new CardLayout();
+	// cPanel.setLayout(crd);
+   
 
-		name = new JLabel("Name");
-		name.setFont(new Font("Arial", Font.PLAIN, 20));
-		name.setSize(100, 20);
-		name.setLocation(100, 100);
-		c.add(name);
+    JPanel jPanel1 = new JPanel();
+    JPanel jPanel2 = new JPanel();
+    JPanel jPanel3 = new JPanel();
+    JPanel jPanel4 = new JPanel();
 
-		tname = new JTextField();
-		tname.setFont(new Font("Arial", Font.PLAIN, 15));
-		tname.setSize(190, 20);
-		tname.setLocation(200, 100);
-		c.add(tname);
+    JLabel title = new JLabel("Student Details");
+    title.setFont(new Font("Arial", Font.PLAIN, 30));
+	// title.setLocation(600, 30);
+	// title.setBounds(600, 200, 50, 50);
+    jPanel1.add(title);
 
-		mno = new JLabel("Mobile");
-		mno.setFont(new Font("Arial", Font.PLAIN, 20));
-		mno.setSize(100, 20);
-		mno.setLocation(100, 150);
-		c.add(mno);
+    JLabel name = new JLabel("Name");
+    name.setFont(new Font("Arial", Font.PLAIN, 20));
+    // name.setLocation(100, 100);
+	
+	// name.setBounds(100, 20, 100, 100);
+	name.setVerticalAlignment(JLabel.CENTER);
+    jPanel1.add(name);
 
-		tmno = new JTextField();
-		tmno.setFont(new Font("Arial", Font.PLAIN, 15));
-		tmno.setSize(150, 20);
-		tmno.setLocation(200, 150);
-		c.add(tmno);
+    JTextField tname = new JTextField();
+    tname.setFont(new Font("Arial", Font.PLAIN, 15));
+    // tname.setLocation(200, 100);
+    tname.setColumns(10);
+    jPanel1.add(tname);
 
-		gender = new JLabel("Gender");
-		gender.setFont(new Font("Arial", Font.PLAIN, 20));
-		gender.setSize(100, 20);
-		gender.setLocation(100, 200);
-		c.add(gender);
+    JLabel enroll = new JLabel("Enrollment No");
+	enroll.setFont(new Font("Arial", Font.PLAIN, 20));
+	enroll.setVerticalAlignment(JLabel.CENTER);
+	// enroll.setLocation(100, 100);
+	enroll.setBounds(500, 20, 100, 100);
+	jPanel1.add(enroll);
+	
+	
+    JTextField tenroll = new JTextField();
+    tenroll.setFont(new Font("Arial", Font.PLAIN, 15));
+    // tenroll.setLocation(200, 100);
+    tenroll.setColumns(10);
+    jPanel1.add(tenroll);
 
-		male = new JRadioButton("Male");
-		male.setFont(new Font("Arial", Font.PLAIN, 15));
-		male.setSelected(true);
-		male.setSize(75, 20);
-		male.setLocation(200, 200);
-		c.add(male);
+    JButton nextbutton = new JButton("Next");
+    jPanel1.add(nextbutton);
 
-		female = new JRadioButton("Female");
-		female.setFont(new Font("Arial", Font.PLAIN, 15));
-		female.setSelected(false);
-		female.setSize(80, 20);
-		female.setLocation(275, 200);
-		c.add(female);
+  
 
-		gengp = new ButtonGroup();
-		gengp.add(male);
-		gengp.add(female);
+    JLabel Q1 = new JLabel("Q1. What is the capital of India ?");
+    Q1.setFont(new Font("Arial", Font.PLAIN, 20));
+    // name.setLocation(100, 100);
+    jPanel2.add(Q1);
 
-		dob = new JLabel("DOB");
-		dob.setFont(new Font("Arial", Font.PLAIN, 20));
-		dob.setSize(100, 20);
-		dob.setLocation(100, 250);
-		c.add(dob);
+    JRadioButton Delhi = new JRadioButton("Delhi");
+    Delhi.setFont(new Font("Arial", Font.PLAIN, 15));
+    Delhi.setSelected(false);
+    // Delhi.setLocation(200, 200);
+    jPanel2.add(Delhi);
 
-		date = new JComboBox(dates);
-		date.setFont(new Font("Arial", Font.PLAIN, 15));
-		date.setSize(50, 20);
-		date.setLocation(200, 250);
-		c.add(date);
+    JRadioButton Mumbai = new JRadioButton("Mumbai");
+    Mumbai.setFont(new Font("Arial", Font.PLAIN, 15));
+    Mumbai.setSelected(false);
+    // Mumbai.setLocation(275, 200);
+    jPanel2.add(Mumbai);
 
-		month = new JComboBox(months);
-		month.setFont(new Font("Arial", Font.PLAIN, 15));
-		month.setSize(60, 20);
-		month.setLocation(250, 250);
-		c.add(month);
+    JRadioButton Kolkata = new JRadioButton("Kolkata");
+    Kolkata.setFont(new Font("Arial", Font.PLAIN, 15));
+    Kolkata.setSelected(false);
+    // Kolkata.setLocation(350, 200);
+    jPanel2.add(Kolkata);
 
-		year = new JComboBox(years);
-		year.setFont(new Font("Arial", Font.PLAIN, 15));
-		year.setSize(60, 20);
-		year.setLocation(320, 250);
-		c.add(year);
+    JRadioButton Chandigarh = new JRadioButton("Chandigarh");
+    Chandigarh.setFont(new Font("Arial", Font.PLAIN, 15));
+    Chandigarh.setSelected(false);
+    // Chandigarh.setLocation(350, 200);
+    jPanel2.add(Chandigarh);
 
-		add = new JLabel("Address");
-		add.setFont(new Font("Arial", Font.PLAIN, 20));
-		add.setSize(100, 20);
-		add.setLocation(100, 300);
-		c.add(add);
+    ButtonGroup gengp = new ButtonGroup();
+    gengp.add(Delhi);
+    gengp.add(Mumbai);
+    gengp.add(Kolkata);
+    gengp.add(Chandigarh);
 
-		tadd = new JTextArea();
-		tadd.setFont(new Font("Arial", Font.PLAIN, 15));
-		tadd.setSize(200, 75);
-		tadd.setLocation(200, 300);
-		tadd.setLineWrap(true);
-		c.add(tadd);
+    JLabel Q2 = new JLabel("Q2. Who is the current President of India ?");
+	Q2.setFont(new Font("Arial", Font.PLAIN, 20));
+    // Q2.setLocation(100, 200);
+    jPanel2.add(Q2);
 
-		term = new JCheckBox("Accept Terms And Conditions.");
-		term.setFont(new Font("Arial", Font.PLAIN, 15));
-		term.setSize(250, 20);
-		term.setLocation(150, 400);
-		c.add(term);
+    JRadioButton RamNathKovind = new JRadioButton("Mr. Ram Nath Kovind");
+    RamNathKovind.setFont(new Font("Arial", Font.PLAIN, 15));
+    RamNathKovind.setSelected(false);
+    // RamNathKovind.setLocation(200, 300);
+    jPanel2.add(RamNathKovind);
 
-		sub = new JButton("Submit");
-		sub.setFont(new Font("Arial", Font.PLAIN, 15));
-		sub.setSize(100, 20);
-		sub.setLocation(150, 450);
-		sub.addActionListener(this);
-		c.add(sub);
+    JRadioButton Kalam = new JRadioButton("Dr. APJ Abdul Kalam");
+    Kalam.setFont(new Font("Arial", Font.PLAIN, 15));
+    Kalam.setSelected(false);
+    // Kalam.setLocation(275, 300);
+    jPanel2.add(Kalam);
 
-		reset = new JButton("Reset");
-		reset.setFont(new Font("Arial", Font.PLAIN, 15));
-		reset.setSize(100, 20);
-		reset.setLocation(270, 450);
-		reset.addActionListener(this);
-		c.add(reset);
+    JRadioButton Ppatil = new JRadioButton("Mrs Pratibha Patil");
+    Ppatil.setFont(new Font("Arial", Font.PLAIN, 15));
+    Ppatil.setSelected(false);
+    // Ppatil.setLocation(350, 300);
+    jPanel2.add(Ppatil);
 
-		tout = new JTextArea();
-		tout.setFont(new Font("Arial", Font.PLAIN, 15));
-		tout.setSize(300, 400);
-		tout.setLocation(500, 100);
-		tout.setLineWrap(true);
-		tout.setEditable(false);
-		c.add(tout);
+    JRadioButton Namo = new JRadioButton("Mr Narendra Modi");
+    Namo.setFont(new Font("Arial", Font.PLAIN, 15));
+    Namo.setSelected(false);
+    // Namo.setLocation(425, 300);
+    jPanel2.add(Namo);
 
-		res = new JLabel("");
-		res.setFont(new Font("Arial", Font.PLAIN, 20));
-		res.setSize(500, 25);
-		res.setLocation(100, 500);
-		c.add(res);
+    ButtonGroup geng = new ButtonGroup();
+    geng.add(RamNathKovind);
+    geng.add(Kalam);
+    geng.add(Ppatil);
+    geng.add(Namo);
 
-		resadd = new JTextArea();
-		resadd.setFont(new Font("Arial", Font.PLAIN, 15));
-		resadd.setSize(200, 75);
-		resadd.setLocation(580, 175);
-		resadd.setLineWrap(true);
-		c.add(resadd);
+    JButton Previous = new JButton("Previous");
+    jPanel2.add(Previous);
+
+    JButton nextbutton1 = new JButton("Next");
+    jPanel2.add(nextbutton1);
+
+    JLabel Q3 = new JLabel("Q3. When did India become a Republic ?");
+    Q3.setFont(new Font("Arial", Font.PLAIN, 20));
+    // Q3.setLocation(100, 100);
+    jPanel3.add(Q3);
+
+    JRadioButton year47 = new JRadioButton("1947");
+    year47.setFont(new Font("Arial", Font.PLAIN, 15));
+    year47.setSelected(false);
+    // year47.setLocation(200, 200);
+    jPanel3.add(year47);
+
+    JRadioButton year50 = new JRadioButton("1950");
+    year50.setFont(new Font("Arial", Font.PLAIN, 15));
+    year50.setSelected(false);
+    // year50.setLocation(275, 200);
+    jPanel3.add(year50);
+
+    JRadioButton year35 = new JRadioButton("1935");
+    year35.setFont(new Font("Arial", Font.PLAIN, 15));
+    year35.setSelected(false);
+    // year35.setLocation(350, 200);
+    jPanel3.add(year35);
+
+    JRadioButton year49 = new JRadioButton("1949");
+    year49.setFont(new Font("Arial", Font.PLAIN, 15));
+    year49.setSelected(false);
+    // year49.setLocation(425, 200);
+    jPanel3.add(year49);
+
+    ButtonGroup gen = new ButtonGroup();
+    gen.add(year35);
+    gen.add(year49);
+    gen.add(year47);
+    gen.add(year50);
+
+    JButton Previous1 = new JButton("Previous");
+    jPanel3.add(Previous1);
+
+    JButton SUBMIT = new JButton("Submit");
+    jPanel3.add(SUBMIT);
+
+    JTextField result = new JTextField();
+    result.setFont(new Font("Arial", Font.PLAIN, 15));
+    // result.setLocation(200, 100);
+    result.setColumns(30);
+    result.setEditable(false);
+	jPanel4.add(result);
+	
+	 
+	// CardLayout crd;
+    // crd = new CardLayout();
+	// cPanel.setLayout(crd);
+
+    c.add(jPanel1, "1");
+
+    c.add(jPanel2, "2");
+
+    c.add(jPanel3, "3");
+    c.add(jPanel4, "4");
+
+    nextbutton.addActionListener(
+      new ActionListener() {
+        public void actionPerformed(ActionEvent ae) {
+          crd.show(cPanel, "2");
+        }
+      }
+    );
+    nextbutton1.addActionListener(
+      new ActionListener() {
+        public void actionPerformed(ActionEvent ae) {
+          crd.show(cPanel, "3");
+        }
+      }
+    );
+    Previous.addActionListener(
+      new ActionListener() {
+        public void actionPerformed(ActionEvent ae) {
+          crd.show(cPanel, "1");
+        }
+      }
+    );
+    Previous1.addActionListener(
+      new ActionListener() {
+        public void actionPerformed(ActionEvent ae) {
+          crd.show(cPanel, "2");
+        }
+      }
+    );
+    SUBMIT.addActionListener(
+      new ActionListener() {
+        public void actionPerformed(ActionEvent ae) {
+          String namedata = tname.getText();
+          String Enrolldata = tenroll.getText();
+
+          if (year50.isSelected() == true) Score++;
+          if (RamNathKovind.isSelected() == true) Score++;
+          if (Delhi.isSelected() == true) Score++;
+          String Final =
+            "The marks of " +
+            namedata +
+            " with " +
+            Enrolldata +
+            " are " +
+            Score +
+            " out of 3";
+          result.setText(Final);
+          crd.show(cPanel, "4");
+        }
+      }
+    );
+    getContentPane().add(cPanel);
+
+
 
 		setVisible(true);
 	}
 
-	
-	public void actionPerformed(ActionEvent e)
-	{
-		if (e.getSource() == sub) {
-			if (term.isSelected()) {
-				String data1;
-				String data
-					= "Name : "
-					+ tname.getText() + "\n"
-					+ "Mobile : "
-					+ tmno.getText() + "\n";
-				if (male.isSelected())
-					data1 = "Gender : Male"
-							+ "\n";
-				else
-					data1 = "Gender : Female"
-							+ "\n";
-				String data2
-					= "DOB : "
-					+ (String)date.getSelectedItem()
-					+ "/" + (String)month.getSelectedItem()
-					+ "/" + (String)year.getSelectedItem()
-					+ "\n";
-
-				String data3 = "Address : " + tadd.getText();
-				tout.setText(data + data1 + data2 + data3);
-				tout.setEditable(false);
-				res.setText("Registration Successfully..");
-			}
-			else {
-				tout.setText("");
-				resadd.setText("");
-				res.setText("Please accept the"
-							+ " terms & conditions..");
-			}
-		}
-
-		else if (e.getSource() == reset) {
-			String def = "";
-			tname.setText(def);
-			tadd.setText(def);
-			tmno.setText(def);
-			res.setText(def);
-			tout.setText(def);
-			term.setSelected(false);
-			date.setSelectedIndex(0);
-			month.setSelectedIndex(0);
-			year.setSelectedIndex(0);
-			resadd.setText(def);
-		}
-	}
 }
 
-// Driver Code
+
 public class Main {
 
-	public static void main(String[] args) throws Exception
+	public static void main(String[] args) 
 	{
 		MyFrame f = new MyFrame();
+		// f.setVisible(true);
 	}
 }
 
