@@ -12,10 +12,9 @@ public class Gform extends JFrame {
   public Gform() {
     setTitle("Google Form");
 
-    // setSize(310, 160);
     setBounds(300, 90, 900, 600);
     setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setResizable(false);
+    setResizable(false);
 
     JPanel cPanel = new JPanel();
 
@@ -25,24 +24,38 @@ public class Gform extends JFrame {
 
     JPanel jPanel1 = new JPanel();
 
-    // JLabel title = new JLabel("Registration Form");
-	// 	title.setFont(new Font("Arial", Font.PLAIN, 30));
-	// 	title.setSize(300, 30);
-	// 	title.setLocation(300, 30);
-	// 	jPanel1.add(title);
+    JLabel title = new JLabel("Registration Form");
+    title.setFont(new Font("Arial", Font.PLAIN, 30));
+    title.setSize(300, 30);
+    title.setLocation(300, 30);
+    jPanel1.add(title);
 
-        JLabel name = new JLabel("Name");
-        name.setFont(new Font("Arial", Font.PLAIN, 20));
-        name.setLocation(200, 200);
-		// name.setSize(100, 20);
-		// name.setLocation(400, 400);
-		jPanel1.add(name);
+    JLabel name = new JLabel("Name");
+    name.setFont(new Font("Arial", Font.PLAIN, 20));
+    name.setLocation(200, 200);
+    name.setSize(100, 20);
+    name.setLocation(400, 400);
+    jPanel1.add(name);
 
-		JTextField tname = new JTextField();
-		tname.setFont(new Font("Arial", Font.PLAIN, 15));
-		tname.setSize(390, 320);
-		tname.setLocation(300, 300);
-        jPanel1.add(tname);
+    JTextField tname = new JTextField();
+    tname.setFont(new Font("Arial", Font.PLAIN, 15));
+    tname.setSize(390, 320);
+    tname.setLocation(300, 300);
+    tname.setColumns(6);
+    jPanel1.add(tname);
+
+    JLabel enroll = new JLabel("Enrollment No");
+    enroll.setFont(new Font("Arial", Font.PLAIN, 20));
+    enroll.setSize(100, 20);
+    enroll.setLocation(100, 100);
+    jPanel1.add(enroll);
+
+    JTextField tenroll = new JTextField();
+    tenroll.setFont(new Font("Arial", Font.PLAIN, 15));
+    tenroll.setSize(190, 20);
+    tenroll.setLocation(200, 100);
+    tenroll.setColumns(6);
+    jPanel1.add(tenroll);
 
     JPanel jPanel2 = new JPanel();
 
@@ -136,9 +149,9 @@ public class Gform extends JFrame {
       }
     );
 
-    getContentPane().add(cPanel, BorderLayout.NORTH);
+    getContentPane().add(cPanel,);
 
-    // getContentPane().add(btnPanel, BorderLayout.SOUTH);
+    getContentPane().add(btnPanel, BorderLayout.SOUTH);
   }
 
   public static void main(String argvs[]) {
