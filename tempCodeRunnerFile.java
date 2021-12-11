@@ -1,2 +1,1 @@
-
-    // result.setLocation(200, 100);
+// title.setFont(new Font("Arial", Font.PLAIN, 30));

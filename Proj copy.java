@@ -1,74 +1,59 @@
-// Java program to implement
-// a Simple Registration Form
-// using Java Swing
-
-import javax.swing.*;
-
 import java.awt.*;
 import java.awt.event.*;
+import javax.swing.*;
 
-class MyFrame
-		extends JFrame {
-	private CardLayout crd;
+class MyFrame extends JFrame {
 
-	// Components of the Form
-	private Container c;
-	int Score = 0;
+  int Score = 0;
 
-	// constructor, to initialize the components
-	// with default values.
-	public MyFrame() {
-		
-
-		c = getContentPane();
-		crd = new CardLayout();
-		c.setLayout(null);
-
-		setTitle("Google Form Project");
-	  setBounds(300, 90, 900, 600);
+  public MyFrame() {
+    setTitle("Google Form Project");
+    setBounds(300, 90, 1130, 500);
     setDefaultCloseOperation(EXIT_ON_CLOSE);
     setResizable(false);
-	
+
     JPanel cPanel = new JPanel();
-    
-	// CardLayout crd;
-    // crd = new CardLayout();
-	// cPanel.setLayout(crd);
-   
+
+    CardLayout crd;
+    crd = new CardLayout(35,150);
+    cPanel.setLayout(crd);
 
     JPanel jPanel1 = new JPanel();
     JPanel jPanel2 = new JPanel();
     JPanel jPanel3 = new JPanel();
     JPanel jPanel4 = new JPanel();
 
-    JLabel title = new JLabel("Student Details");
-    title.setFont(new Font("Arial", Font.PLAIN, 30));
-	// title.setLocation(600, 30);
-	// title.setBounds(600, 200, 50, 50);
-    jPanel1.add(title);
+    // jPanel1.setAlignmentX(Component.LEFT_ALIGNMENT);
+
+    // JLabel title = new JLabel("Student Details");
+    // title.setFont(new Font("Arial", Font.PLAIN, 30));
+    // title.setLocation(600, 30);
+    // title.setBounds(300, 500, 50, 50);
+    // jPanel1.add(title);
 
     JLabel name = new JLabel("Name");
     name.setFont(new Font("Arial", Font.PLAIN, 20));
     // name.setLocation(100, 100);
-	
-	// name.setBounds(100, 20, 100, 100);
-	name.setVerticalAlignment(JLabel.CENTER);
+    name.setBounds(200, 100, 20, 40);
+    System.out.println(name.getBounds());
+
+    // name.setBounds(100, 20, 100, 100);
+    // name.setVerticalAlignment(JLabel.CENTER);
     jPanel1.add(name);
 
-    JTextField tname = new JTextField();
+    JTextField tname = new JTextField("");
     tname.setFont(new Font("Arial", Font.PLAIN, 15));
     // tname.setLocation(200, 100);
     tname.setColumns(10);
     jPanel1.add(tname);
 
     JLabel enroll = new JLabel("Enrollment No");
-	enroll.setFont(new Font("Arial", Font.PLAIN, 20));
-	enroll.setVerticalAlignment(JLabel.CENTER);
-	// enroll.setLocation(100, 100);
-	enroll.setBounds(500, 20, 100, 100);
-	jPanel1.add(enroll);
-	
-	
+    enroll.setFont(new Font("Arial", Font.PLAIN, 20));
+    // enroll.setVerticalAlignment(JLabel.CENTER);
+    // enroll.setLocation(100, 100);
+    enroll.setBounds(300, 20, 100, 100);
+    jPanel1.add(enroll);
+
     JTextField tenroll = new JTextField();
     tenroll.setFont(new Font("Arial", Font.PLAIN, 15));
     // tenroll.setLocation(200, 100);
@@ -78,9 +63,9 @@ class MyFrame
     JButton nextbutton = new JButton("Next");
     jPanel1.add(nextbutton);
 
-  
+    cPanel.setAlignmentX(Component.LEFT_ALIGNMENT);
 
-    JLabel Q1 = new JLabel("Q1. What is the capital of India ?");
+    JLabel Q1 = new JLabel("Q1. Which city is the capital city of India ?");
     Q1.setFont(new Font("Arial", Font.PLAIN, 20));
     // name.setLocation(100, 100);
     jPanel2.add(Q1);
@@ -116,7 +101,7 @@ class MyFrame
     gengp.add(Chandigarh);
 
     JLabel Q2 = new JLabel("Q2. Who is the current President of India ?");
-	Q2.setFont(new Font("Arial", Font.PLAIN, 20));
+    Q2.setFont(new Font("Arial", Font.PLAIN, 20));
     // Q2.setLocation(100, 200);
     jPanel2.add(Q2);
 
@@ -202,19 +187,14 @@ class MyFrame
     // result.setLocation(200, 100);
     result.setColumns(30);
     result.setEditable(false);
-	jPanel4.add(result);
-	
-	 
-	// CardLayout crd;
-    // crd = new CardLayout();
-	// cPanel.setLayout(crd);
+    jPanel4.add(result);
 
-    c.add(jPanel1, "1");
+    cPanel.add(jPanel1, "1");
 
-    c.add(jPanel2, "2");
+    cPanel.add(jPanel2, "2");
 
-    c.add(jPanel3, "3");
-    c.add(jPanel4, "4");
+    cPanel.add(jPanel3, "3");
+    cPanel.add(jPanel4, "4");
 
     nextbutton.addActionListener(
       new ActionListener() {
@@ -267,21 +247,13 @@ class MyFrame
       }
     );
     getContentPane().add(cPanel);
-
-
-
-		setVisible(true);
-	}
-
+  }
 }
 
+public class Proj {
 
-public class Main {
-
-	public static void main(String[] args) 
-	{
-		MyFrame f = new MyFrame();
-		// f.setVisible(true);
-	}
+  public static void main(String[] args) throws Exception {
+    MyFrame f = new MyFrame();
+    f.setVisible(true);
+  }
 }
-
